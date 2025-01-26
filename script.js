@@ -43,14 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // Create the task element
         createTaskElement(taskText);
 
-        // Update Local Storage
+        // Save the task in Local Storage
         const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
         tasks.push(taskText);
         saveTasks(tasks);
 
-        taskInput.value = ""; // Clear the input field
+        // Clear the input field
+        taskInput.value = "";
     }
 
     // Remove a task from Local Storage
@@ -60,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         saveTasks(updatedTasks);
     }
 
-    // Event listeners
+    // Attach event listeners
     addButton.addEventListener("click", addTask);
 
     taskInput.addEventListener("keypress", (event) => {
@@ -69,6 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Load tasks on page load
+    // Load tasks when the page loads
     loadTasks();
 });
