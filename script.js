@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Select DOM elements
     const addButton = document.getElementById("add-task-btn");
     const taskInput = document.getElementById("task-input");
@@ -21,9 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to create and add a new task element
     function createTaskElement(taskText) {
+        // Create list item
         const taskItem = document.createElement("li");
         taskItem.textContent = taskText;
 
+        // Create remove button
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.className = "remove-btn";
@@ -33,7 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
             removeTaskFromStorage(taskText);
         };
 
+        // Append button to the task item
         taskItem.appendChild(removeButton);
+
+        // Add task item to the list
         taskList.appendChild(taskItem);
     }
 
